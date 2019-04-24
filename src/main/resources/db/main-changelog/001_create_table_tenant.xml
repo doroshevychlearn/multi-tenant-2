@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+
+    <changeSet author="developer" id="create table 'tenant'">
+
+        <preConditions>
+            <not>
+                <tableExists tableName="tenant"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="tenant">
+
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="url" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="username" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="initialize" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+        <sql>
+            <![CDATA[INSERT INTO tenant (name, url, username, password, initialize) VALUES ('DB1', 'jdbc:mysql://localhost:3306/rm_db1?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC', 'root', 'rootroot' , true);]]>
+            <![CDATA[INSERT INTO tenant (name, url, username, password, initialize) VALUES ('DB2', 'jdbc:mysql://localhost:3306/rm_db2?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC', 'root', 'rootroot' , true);]]>
+            <![CDATA[INSERT INTO tenant (name, url, username, password, initialize) VALUES ('DB3', 'jdbc:mysql://localhost:3306/rm_db3?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC', 'root', 'rootroot' , true);]]>
+            <![CDATA[INSERT INTO tenant (name, url, username, password, initialize) VALUES ('DB4', 'jdbc:mysql://localhost:3306/rm_db4?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC', 'root', 'rootroot' , true);]]>
+            <![CDATA[INSERT INTO tenant (name, url, username, password, initialize) VALUES ('DB5', 'jdbc:mysql://localhost:3306/rm_db5?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC', 'root', 'rootroot' , true);]]>
+            <![CDATA[INSERT INTO tenant (name, url, username, password, initialize) VALUES ('DB6', 'jdbc:mysql://localhost:3306/rm_db6?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC', 'root', 'rootroot' , true);]]>
+        </sql>
+
+    </changeSet>
+</databaseChangeLog>
